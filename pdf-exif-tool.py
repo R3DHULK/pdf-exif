@@ -9,13 +9,19 @@ print('''
  |  _/ |) | _|  | _| >  < | || _|    | || (_) | (_) | |__ 
  |_| |___/|_|   |___/_/\_\___|_|     |_| \___/ \___/|____|
           c 0 d e   f       0         
-                        r        m    R3DHULK     ''')  
-print("")                                                     
-pdf = pikepdf.Pdf.open(input("Enter PDF Name : "))
+                        r        m    R3DHULK     
+                        
+           https://github.com/R3DHULK                  
+''')  
 print("")
-docinfo = pdf.docinfo
-for key, value in docinfo.items():
-    print( key, ":", value)
-    print("")
-input("Enter To Close Window")
+try:                                                     
+	pdf = pikepdf.Pdf.open(input(" [*] Enter PDF Name : "))
+	print("")	
+	docinfo = pdf.docinfo
+	for key, value in docinfo.items():
+		print( key, ":", value)
+		print("")
+except KeyboardInterrupt:
+	print("\n [-] Ctrl+C Detected----\n [-] Exiting....\n")
+input(" Enter To Close Window")
 os.system("clear")
