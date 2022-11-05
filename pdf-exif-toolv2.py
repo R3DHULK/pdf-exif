@@ -62,17 +62,23 @@ print('''
  |  _/ |) | _|  | _| >  < | || _|    | || (_) | (_) | |__ 
  |_| |___/|_|   |___/_/\_\___|_|     |_| \___/ \___/|____|
           c 0 d e   f       0         
-                        r        m    R3DHULK     ''') 
+                        r        m    R3DHULK  
+                           
+          https://github.com/R3DHULK                 
+''') 
                         
 print("")
-pdf = pikepdf.Pdf.open(input("Enter PDF Name : "))
-print("")
-docinfo = pdf.docinfo
-for key, value in docinfo.items():
-    if str(value).startswith("D:"):
-        # pdf datetime format, convert to python datetime
-        value = transform_date(str(pdf.docinfo["/CreationDate"]))
-    print( key, ":", value)
+try:
+	pdf = pikepdf.Pdf.open(input(" [*] Enter PDF Name : "))
+	print("")
+	docinfo = pdf.docinfo
+	for key, value in docinfo.items():
+		if str(value).startswith("D:"):
+			# pdf datetime format, convert to python datetime
+			value = transform_date(str(pdf.docinfo["/CreationDate"]))
+		print( key, ":", value)
+except KeyboardInterrupt:
+	print("\n [-] Ctrl+C Detected......Exiting\n")
 print("")
 input("Enter To Close Window")
 os.system("clear")
